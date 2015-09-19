@@ -651,7 +651,7 @@ Win32WindowingSystem::OpenGLContext::~OpenGLContext()
 
     if (_hglrc)
     {
-        ::wglMakeCurrent(_hdc, NULL);
+        //::wglMakeCurrent(_hdc, NULL);
         ::wglDeleteContext(_hglrc);
         _hglrc = 0;
     }
@@ -903,7 +903,7 @@ bool Win32WindowingSystem::getSampleOpenGLContext( OpenGLContext& context, HDC w
 
     context.set(hwnd, hdc, hglrc);
 
-    if (!context.makeCurrent(windowHDC, true)) return false;
+    if (!context.makeCurrent(::wglGetCurrentDC(), true)) return false;
 
     return true;
 }
