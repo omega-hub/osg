@@ -93,9 +93,6 @@ class OSGVIEWER_EXPORT StatsHandler : public osgGA::GUIEventHandler
         void setKeyEventPrintsOutStats(int key) { _keyEventPrintsOutStats = key; }
         int getKeyEventPrintsOutStats() const { return _keyEventPrintsOutStats; }
 
-        void setKeyEventToggleVSync(int key) { _keyEventToggleVSync = key; }
-        int getKeyEventToggleVSync() const { return _keyEventToggleVSync; }
-
         double getBlockMultiplier() const { return _blockMultiplier; }
 
         void reset();
@@ -172,7 +169,6 @@ protected:
 
         int                                 _keyEventTogglesOnScreenStats;
         int                                 _keyEventPrintsOutStats;
-        int                                 _keyEventToggleVSync;
 
         int                                 _statsType;
 
@@ -503,7 +499,7 @@ class OSGVIEWER_EXPORT ScreenCaptureHandler : public osgGA::GUIEventHandler
 /** InteractiveImage is an event handler that computes the mouse coordinates in an images coordinate frame
   * and then passes keyboard and mouse events to it.  This event handler is useful for vnc or browser
   * surfaces in the 3D scene.*/
-class OSGVIEWER_EXPORT InteractiveImageHandler : public osgGA::GUIEventHandler, public osg::Drawable::CullCallback
+class OSGVIEWER_EXPORT InteractiveImageHandler : public osgGA::GUIEventHandler, public osg::DrawableCullCallback
 {
 public:
 
@@ -528,7 +524,7 @@ protected:
     InteractiveImageHandler() {}
 
     InteractiveImageHandler(const InteractiveImageHandler&,const osg::CopyOp& = osg::CopyOp::SHALLOW_COPY):
-        osg::Object(), osg::Callback(), osgGA::GUIEventHandler(), osg::Drawable::CullCallback(), _fullscreen(false) {}
+        osg::Object(), osg::Callback(), osgGA::GUIEventHandler(), osg::DrawableCullCallback(), _fullscreen(false) {}
 
     bool mousePosition(osgViewer::View* view, osg::NodeVisitor* nv, const osgGA::GUIEventAdapter& ea, int& x, int &y) const;
 

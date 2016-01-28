@@ -46,6 +46,7 @@ SET(TARGET_H
     ${HEADER_PATH}/Capability
     ${HEADER_PATH}/ClampColor
     ${HEADER_PATH}/ClearNode
+    ${HEADER_PATH}/ClipControl
     ${HEADER_PATH}/ClipNode
     ${HEADER_PATH}/ClipPlane
     ${HEADER_PATH}/ClusterCullingCallback
@@ -54,6 +55,7 @@ SET(TARGET_H
     ${HEADER_PATH}/ColorMaski
     ${HEADER_PATH}/ColorMatrix
     ${HEADER_PATH}/ComputeBoundsVisitor
+    ${HEADER_PATH}/ContextData
     ${HEADER_PATH}/ConvexPlanarOccluder
     ${HEADER_PATH}/ConvexPlanarPolygon
     ${HEADER_PATH}/CoordinateSystemNode
@@ -181,6 +183,8 @@ SET(TARGET_H
     ${HEADER_PATH}/Transform
     ${HEADER_PATH}/TriangleFunctor
     ${HEADER_PATH}/TriangleIndexFunctor
+    ${HEADER_PATH}/TriangleLinePointIndexFunctor
+    ${HEADER_PATH}/Types
     ${HEADER_PATH}/Uniform
     ${HEADER_PATH}/UserDataContainer
     ${HEADER_PATH}/ValueObject
@@ -246,6 +250,7 @@ SET(TARGET_SRC
     CameraView.cpp
     ClampColor.cpp
     ClearNode.cpp
+    ClipControl.cpp
     ClipNode.cpp
     ClipPlane.cpp
     ClusterCullingCallback.cpp
@@ -254,6 +259,7 @@ SET(TARGET_SRC
     ColorMaski.cpp
     ColorMatrix.cpp
     ComputeBoundsVisitor.cpp
+    ContextData.cpp
     ConvexPlanarOccluder.cpp
     ConvexPlanarPolygon.cpp
     CoordinateSystemNode.cpp
