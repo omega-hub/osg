@@ -1067,6 +1067,7 @@ BufferObject::~BufferObject()
 
 GLBufferObject* BufferObject::getOrCreateGLBufferObject(unsigned int contextID) const
 {
+    OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
     if (!_glBufferObjects[contextID]) _glBufferObjects[contextID] = osg::get<GLBufferObjectManager>(contextID)->generateGLBufferObject(this);
     return _glBufferObjects[contextID].get();
 }
