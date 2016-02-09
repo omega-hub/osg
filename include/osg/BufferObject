@@ -476,6 +476,7 @@ class OSG_EXPORT BufferObject : public Object
         typedef std::vector< BufferData* > BufferDataList;
         typedef osg::buffered_object< osg::ref_ptr<GLBufferObject> > GLBufferObjects;
 
+        mutable OpenThreads::Mutex  _mutex;
         BufferObjectProfile     _profile;
 
         bool                    _copyDataAndReleaseGLBufferObject;
